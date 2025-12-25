@@ -25,7 +25,7 @@ export default function BlogListItem({ blog }: BlogListItemProps) {
                 </div>
 
                 <Link
-                    to={`/blog/open?id=${blog.slug}`}
+                    to={`/blog/${blog.slug}`}
                     className="block"
                 >
                     <h3 className="text-xl font-medium text-blue-400 hover:underline mb-2">

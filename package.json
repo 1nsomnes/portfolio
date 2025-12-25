@@ -3,12 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://ced.github.io/portfolio",
+  "homepage": "https://cedricclaessens.com",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "npm run build && touch ./dist/.nojekyll && echo \"cedricclaessens.com\" > dist/CNAME && gh-pages -d dist -f",
     "lint": "eslint .",
     "preview": "vite preview"
   },

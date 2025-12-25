@@ -8,7 +8,7 @@ interface BlogCardProps {
 export default function BlogCard({ blog }: BlogCardProps) {
     return (
         <Link
-            to={`/blog/open?id=${blog.slug}`}
+            to={`/blog/${blog.slug}`}
             className="block w-72 flex-shrink-0 bg-neutral-800 rounded-xl overflow-hidden hover:scale-105 transition-transform duration-300 border border-white/5 cursor-pointer group"
         >
             <div className="h-40 overflow-hidden">

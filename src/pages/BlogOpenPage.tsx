@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 
 export default function BlogOpenPage() {
-    const [searchParams] = useSearchParams();
+    const { id } = useParams();
     const navigate = useNavigate();
-    const id = searchParams.get('id');
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
