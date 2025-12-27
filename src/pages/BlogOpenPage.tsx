@@ -74,9 +74,12 @@ export default function BlogOpenPage() {
                     components={{
                         // Custom styling for markdown elements if needed
                         h1: ({ node, ...props }) => <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mb-8 pb-2" {...props} />,
+                        h2: ({ node, ...props }) => <h2 className="text-3xl font-bold text-white mt-8 mb-4 border-b border-white/10 pb-2" {...props} />,
+                        h3: ({ node, ...props }) => <h3 className="text-2xl font-semibold text-blue-400 mt-6 mb-3" {...props} />,
                         a: ({ node, ...props }) => <a className="text-blue-400 hover:text-blue-300 transition-colors" {...props} />,
-                        img: ({ node, ...props }) => <img className="rounded-xl border border-white/10" {...props} />,
-                        pre: ({ node, ...props }) => <pre className="bg-neutral-900/50 border border-white/10 p-4 rounded-xl overflow-x-auto" {...props} />,
+                        img: ({ node, ...props }) => <img className="rounded-xl border border-white/10 my-4" {...props} />,
+                        p: ({ node, ...props }) => <p className="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed" {...props} />,
+                        pre: ({ node, ...props }) => <pre className="bg-neutral-900/50 border border-white/10 p-4 rounded-xl overflow-x-auto my-4" {...props} />,
                     }}
                 >
                     {content}
