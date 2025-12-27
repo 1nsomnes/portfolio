@@ -14,12 +14,12 @@ export const useBlogs = () => {
                 if (!response.ok) {
                     throw new Error('Failed to fetch blogs');
                 }
-                const data = await response.json();
-                setBlogs(data);
+                const data: Blog[] = await response.json();
+                setBlogs(data.filter(blog => !blog.hidden));
                 setError(null);
             } catch (err) {
                 console.warn('Failed to fetch blogs, using local fallback:', err);
-                setBlogs(localBlogs); // Fallback to local data
+                setBlogs(localBlogs.filter(blog => !blog.hidden)); // Fallback to local data
                 setError(err instanceof Error ? err.message : 'Unknown error');
             } finally {
                 setIsLoading(false);

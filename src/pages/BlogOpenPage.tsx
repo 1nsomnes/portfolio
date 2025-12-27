@@ -1,6 +1,17 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import matter from 'gray-matter';
+
+// Buffer polyfill might be needed for gray-matter in some environments,
+// but let's try direct import first. If it fails due to "Buffer not defined",
+// we might need to use a browser-compatible version or polyfill it.
+import { Buffer } from 'buffer';
+
+// Ensure global Buffer is available for gray-matter if needed
+if (typeof window !== 'undefined' && !(window as any).Buffer) {
+    (window as any).Buffer = Buffer;
+}
 
 export default function BlogOpenPage() {
     const { id } = useParams();
@@ -22,7 +33,11 @@ export default function BlogOpenPage() {
                     throw new Error('Failed to load blog content');
                 }
                 const text = await response.text();
-                setContent(text);
+
+                // Parse front matter
+                const { content: markdownBody } = matter(text);
+
+                setContent(markdownBody);
                 setError(null);
             } catch (err) {
                 console.error('Error fetching blog content:', err);
