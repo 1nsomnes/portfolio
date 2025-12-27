@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import { blogs as localBlogs } from '../components/blog/blogData';
+
 import type { Blog } from '../components/blog/blogData';
 
 export const useBlogs = () => {
-    const [blogs, setBlogs] = useState<Blog[]>(localBlogs);
+    const [blogs, setBlogs] = useState<Blog[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -18,8 +18,8 @@ export const useBlogs = () => {
                 setBlogs(data.filter(blog => !blog.hidden));
                 setError(null);
             } catch (err) {
-                console.warn('Failed to fetch blogs, using local fallback:', err);
-                setBlogs(localBlogs.filter(blog => !blog.hidden)); // Fallback to local data
+                console.error('Failed to fetch blogs:', err);
+                setBlogs([]); // Ensure empty on error
                 setError(err instanceof Error ? err.message : 'Unknown error');
             } finally {
                 setIsLoading(false);

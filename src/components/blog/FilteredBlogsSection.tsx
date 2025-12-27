@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { useBlogs } from '../../hooks/useBlogs';
 import BlogCarousel from './BlogCarousel';
 
@@ -14,6 +14,13 @@ export default function FilteredBlogsSection() {
 
     const [selectedTag, setSelectedTag] = useState<string>(allTags[0] || 'Tech');
     const [isOpen, setIsOpen] = useState(false);
+
+    // Update selected tag if current selection is invalid or empty when tags are available
+    useEffect(() => {
+        if (allTags.length > 0 && !allTags.includes(selectedTag)) {
+            setSelectedTag(allTags[0]);
+        }
+    }, [allTags, selectedTag]);
 
     const filteredBlogs = useMemo(() => {
         return blogs
