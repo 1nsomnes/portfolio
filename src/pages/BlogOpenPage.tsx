@@ -95,6 +95,10 @@ export default function BlogOpenPage() {
                         img: ({ node, ...props }) => <img className="rounded-xl border border-white/10 my-4" {...props} />,
                         p: ({ node, ...props }) => <p className="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed" {...props} />,
                         pre: ({ node, ...props }) => <pre className="bg-neutral-900/50 border border-white/10 p-4 rounded-xl overflow-x-auto my-4" {...props} />,
+                        ul: ({ node, ...props }) => <ul className="list-disc pl-6 mb-6 space-y-2" {...props} />,
+                        ol: ({ node, ...props }) => <ol className="list-decimal pl-6 mb-6 space-y-2" {...props} />,
+                        li: ({ node, ...props }) => <li className="text-lg md:text-xl text-gray-300 leading-relaxed pl-1" {...props} />,
+                        blockquote: ({ node, ...props }) => <blockquote className="border-l-4 border-blue-400 pl-4 py-1 my-6 text-gray-400 italic [&>p]:mb-0" {...props} />,
                     }}
                 >
                     {content}
