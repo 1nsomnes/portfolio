@@ -1,15 +1,8 @@
 [
   {
-    "title": "Placeholder paper title one",
-    "authors": ["Cedric Claessens", "Co-author Name"],
-    "venue": "Venue or journal name",
-    "year": 2026,
-    "url": "https://example.com"
-  },
-  {
-    "title": "Placeholder paper title two",
-    "authors": ["Co-author Name", "Cedric Claessens"],
-    "venue": "Preprint",
-    "year": 2025
+    "title": "Introduction to Fractional Brownian Motion",
+    "authors": ["Cedric Claessens"],
+    "date": "2025-12",
+    "description": "A short paper written for APM 504 about the inspiration for graphical fBm."
   }
 ]

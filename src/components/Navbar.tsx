@@ -51,11 +51,15 @@ export default function Navbar({ name, items }: { name: string; items: NavItem[]
         aria-label="Sections"
         className="mx-auto flex h-14 max-w-5xl items-stretch justify-between px-4 sm:px-6"
       >
-        <a href="#top" className="flex items-center gap-2.5 text-[15px] font-semibold">
-          <svg viewBox="12 12 76 76" aria-hidden className="size-[18px]">
+        <a href="#top" aria-label={`${name}, back to top`} className="group flex items-center">
+          {/* Springy tilt on hover: the overshoot easing makes it settle rather than stop dead. */}
+          <svg
+            viewBox="12 12 76 76"
+            aria-hidden
+            className="size-5 transition-transform duration-500 ease-[cubic-bezier(0.34,1.8,0.64,1)] group-hover:-rotate-[14deg] group-focus-visible:-rotate-[14deg] group-active:scale-90 motion-reduce:transition-none motion-reduce:group-hover:rotate-0"
+          >
             <path fill="currentColor" d="M88 12H32L12 32V68L32 88H88V69H38L32 63V37L38 31H88Z" />
           </svg>
-          <span className="max-sm:sr-only">{name}</span>
         </a>
         <ul className="flex items-stretch gap-4 sm:gap-7">
           {items.map((item) => {

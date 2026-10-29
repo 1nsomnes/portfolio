@@ -47,11 +47,13 @@ export interface Project {
   tags: string[]
 }
 
+/** Only the title is required; the other fields are shown when present. */
 export interface Paper {
   title: string
-  authors: string[]
-  venue: string
-  year: number
+  authors?: string[]
+  venue?: string
+  date?: YearMonth
+  description?: string
   url?: string
 }
 

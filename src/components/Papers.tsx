@@ -1,4 +1,5 @@
 import type { Paper } from '../data/types'
+import { formatMonth } from '../lib/dates'
 
 export default function Papers({ papers, author }: { papers: Paper[]; author: string }) {
   return (
@@ -19,17 +20,24 @@ export default function Papers({ papers, author }: { papers: Paper[]; author: st
               paper.title
             )}
           </h3>
-          <p className="mt-1 text-sm text-ink-2">
-            {paper.authors.map((name, i) => (
-              <span key={name}>
-                {i > 0 && ', '}
-                {name === author ? <span className="font-semibold text-ink">{name}</span> : name}
-              </span>
-            ))}
-          </p>
-          <p className="text-sm text-ink-3">
-            <i>{paper.venue}</i>, <span className="tabular-nums">{paper.year}</span>
-          </p>
+          {paper.authors && (
+            <p className="mt-1 text-sm text-ink-2">
+              {paper.authors.map((name, i) => (
+                <span key={name}>
+                  {i > 0 && ', '}
+                  {name === author ? <span className="font-semibold text-ink">{name}</span> : name}
+                </span>
+              ))}
+            </p>
+          )}
+          {(paper.venue || paper.date) && (
+            <p className="text-sm text-ink-3">
+              {paper.venue && <i>{paper.venue}</i>}
+              {paper.venue && paper.date && ', '}
+              {paper.date && <span className="tabular-nums">{formatMonth(paper.date)}</span>}
+            </p>
+          )}
+          {paper.description && <p className="mt-2 text-[15px] leading-relaxed text-ink-2">{paper.description}</p>}
         </li>
       ))}
     </ol>
