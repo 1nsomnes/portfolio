@@ -8,7 +8,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "predeploy": "npm run build",
-    "deploy": "npm run build && touch ./dist/.nojekyll && echo \"cedricclaessens.com\" > dist/CNAME && gh-pages -d dist -f",
+    "deploy": "gh-pages -d dist --nojekyll --cname cedricclaessens.com -f -m \"Deploy website\"",
     "lint": "eslint .",
     "preview": "vite preview"
   },
