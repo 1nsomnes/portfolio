@@ -1,6 +1,7 @@
 [
   {
     "name": "Arizona State University",
+    "logo": "asu.png",
     "degree": "B.S. Computer Science and Mathematics",
     "location": "Tempe, AZ",
     "end": "2027-05",
