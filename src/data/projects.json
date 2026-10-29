@@ -1,0 +1,9 @@
+[
+  {
+    "title": "Lightify",
+    "description": "A Spotify client that works like Spotlight.",
+    "image": "/projects/lightify.gif",
+    "link": "https://lightify.dev",
+    "tags": ["Flutter", "Swift", "Dart", "Spotify API"]
+  }
+]
